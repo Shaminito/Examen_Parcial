@@ -18,6 +18,8 @@ void masDensidad();
 
 void compararAvilaMadrid();
 
+void listado10provincias();
+
 int municipios = 0;
 
 struct provincia{
@@ -47,6 +49,19 @@ int main() {
     menosDensidad();
     masDensidad();
     compararAvilaMadrid();
+    listado10provincias();
+}
+
+void listado10provincias() {
+    provincia * aux = lista;
+    int provinciasTotales = 1;
+    do{
+        if(aux -> poblacion <= 40 && aux -> altura > 900){
+            cout<<provinciasTotales<<". municipio: "<<aux -> municipio<<", población: "<<aux->poblacion<<", altura: "<<aux->altura<<endl;
+            provinciasTotales++;
+        }
+        aux = aux -> sgt;
+    }while (provinciasTotales <= 10 && aux != NULL);
 }
 
 void compararAvilaMadrid() {
